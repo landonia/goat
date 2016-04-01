@@ -39,7 +39,7 @@ func (goat *Goat) Start() error {
 
 	// Launch the routine for handling the ticker execution
 	go func() {
-		ticker := time.NewTicker(time.Minute)
+		ticker := time.NewTicker(goat.duration)
 		for {
 			select {
 			case <-goat.exit:

@@ -53,6 +53,10 @@ simply run `go get github.com/landonia/goat`
        }
   	}
 
+## Example
+
+simply run `go run github/landonia/goat/cmd/example.go`
+
 ## About
 
 goat was written by [Landon Wainwright](http://www.landotube.com) | [GitHub](https://github.com/landonia).
