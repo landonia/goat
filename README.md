@@ -1,4 +1,4 @@
-# keystore
+# goat
 
 A simple wrapper for creating a ticker execution of a function.
 
