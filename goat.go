@@ -47,8 +47,12 @@ func (goat *Goat) Start() error {
 				return
 			case <-ticker.C:
 
-				// Call the handler
-				goat.handler()
+				// Call the handler in a new routine
+				// ... The task could take longer than the
+				// the ticker meaning it would go out of sync
+				go func() {
+					goat.handler()
+				}()
 			}
 		}
 	}()
