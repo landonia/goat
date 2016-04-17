@@ -33,7 +33,7 @@ func (goat *Goat) Start() error {
 	goat.mut.Lock()
 	defer goat.mut.Unlock()
 	if goat.r {
-		return fmt.Errorf("Already executing - Stop first to start a new goat")
+		return fmt.Errorf("Already executing - Stop first to start the goat")
 	}
 	goat.r = true
 
@@ -65,7 +65,7 @@ func (goat *Goat) Stop() error {
 	goat.mut.Lock()
 	defer goat.mut.Unlock()
 	if !goat.r {
-		return fmt.Errorf("Not executing - Start first to stop a goat")
+		return fmt.Errorf("Not executing - Start first to stop the goat")
 	}
 	goat.exit <- true
 	goat.r = false
