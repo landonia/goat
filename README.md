@@ -20,6 +20,7 @@ simply run `go get github.com/landonia/goat`
 
 ## Use as Library
 
+```go
 	package main
 
 	import (
@@ -27,32 +28,31 @@ simply run `go get github.com/landonia/goat`
   	)
 
   	func main() {
+  		// Create a new goat
+  		g := goat.New(time.Minute,
+         		func() {
+           			fmt.Println("Executed")
+         		},
+       		)
 
-       // Create a new goat
-       g := goat.New(time.Minute,
-         func() {
-           fmt.Println("Executed")
-         },
-       )
+       		// Start the execution
+       		err := g.Start()
+       		if err != nil {
+       			// It means that it has already been started
+         		fmt.Println("Already started")
+       		}
 
-       // Start the execution
-       err := g.Start()
-       if err != nil {
-         // It means that it has already been started
-         fmt.Println("Already started")
-       }
+       		// Do work
+       		...
 
-       // Do work
-       ...
-
-       // Ready to shutdown
-       err = g.Stop()
-       if err != nil {
-         // It means that it was not running
-         fmt.Println("Not started")
-       }
-  	}
-
+       		// Ready to shutdown
+       		err = g.Stop()
+       		if err != nil {
+        		// It means that it was not running
+         		fmt.Println("Not started")
+       		}
+       	}
+```
 ## Example
 
 simply run `go run github/landonia/goat/cmd/example.go`
